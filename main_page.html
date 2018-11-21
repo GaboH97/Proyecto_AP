@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Practica_08</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" type="text/css" href="css/main_page.css">
+</head>
+<body>
+
+	<div id="pageBody">
+		<header id="header">
+			<h1 style="float:left;">Tópicos de Ingeniería en Computación</h1>
+			<p style="float:right;">Tópicos</p>
+		</header> 	
+		<nav id="navbar">
+			<ul>
+				<li>Programación distribuida</li>
+				<li>Reconocimiento de patrones</li>
+				<li>Procesamiento de señales</li>
+			</ul>
+		</nav>
+
+
+			<aside id="rightCol">
+				<blockquote><a href="#topic1">Programación distribuida</a></blockquote>
+				<blockquote><a href="#topic2">Reconocimiento de patrones</a></blockquote>
+				<blockquote><a href="#topic3">Procesamiento de señales</a></blockquote>
+				<blockquote><a href="#footer">Más</a></blockquote>
+			</aside>
+		
+		<section id= "section1">
+			
+			<article>
+				<header class ="topicHeader" id = "topic1"><h1>Programación distribuída</h1></header>
+				<time datetime="2018-02-14" pubdate>publicado 2018-02-14
+				</time>
+				
+				<h2>Concepto</h2>
+				<p>La programación distribuida es un paradigma de programación enfocado en desarrollar sistemas distribuidos, abiertos, escalables, transparentes y tolerantes a fallos. Este paradigma es el resultado natural del uso de las computadoras y las redes.
+				</p>
+
+				<p>
+					Casi cualquier lenguaje de programación que tenga acceso al máximo al hardware del sistema puede manejar la programación distribuida, considerando una buena cantidad de tiempo y código.
+				</p>
+				<p>
+					La programación distribuida típicamente cae en alguna de las varias arquitecturas básicas o arquitecturas: cliente-servidor, 3-tier, n-tier, objetos distribuidos, entre otras además de ser base para la pragmatisidad. Los lenguajes específicamente diseñados para programación distribuida son: Ada, Alef, E, Erlang, Limbo y Oz.
+				</p>
+
+				<h2>Multicomputadoras</h2>
+
+				<span id=>A continuación se muestran los diferentes tipos de multicomputadoras:</span>
+
+				<h3>Multicomputadoras con base en buses</h3>
+
+				<p>Cada CPU tiene conexión directa con su propia memoria local. El único problema restante es la forma en que los CPU se comunicarán entre sí. Es claro que aquí también se necesita cierto esquema de interconexión, pero como sólo es para la comunicación entre un CPU y otro, el volumen del tráfico será de varios órdenes menores en relación con el uso de una red de interconexión para el tráfico CPU-memoria.</p>
+
+				<h3>Multicomputadoras con conmutador</h3>
+
+				<p>
+				Se han propuesto y construido varias redes de interconexión, pero todas tienen la propiedad de que cada CPU tiene acceso directo y exclusivo a su propia memoria particular. Hay dos topologías populares, una retícula y un hipercubo. Las retículas se basan en las tarjetas de circuitos impresos. Se adecuan mejor a los problemas con naturaleza bidimensional inherente, como la teoría de gráficas o la visión. Un hipercubo es un cubo n-dimensional. Se puede pensar como dos cubos ordinarios, cada uno de los cuales cuenta con 8 vértices y 12 aristas. Cada vértice es un CPU. Cada arista es una conexión entre dos CPU. Se conectan los vértices correspondientes de cada uno de los cubos.</p>
+
+				<picture>
+
+  				<source srcset="./img/pd1280.jpg" media="(min-width: 1280px)">
+  				<source srcset="./img/pd800.jpg" media="(min-width: 800px)">
+  				<source srcset="./img/pd480.jpg" media="(min-width: 400px)">
+
+  				<img src="./img/pd1280.jpg">
+
+				</picture>
+
+				<footer class="artfooter">
+					Tomado de: <strong> Ozaus, R. (2018). Programación Distribuida. Retrieved from http://isc-acapulco.blogspot.com/p/programacion-distribuida.html</strong>
+				</footer>
+
+			</article>
+			
+		</section>
+
+		<section id= "section2">
+			<article>
+				<header class ="topicHeader" id="topic2"><h1>Reconocimiento de patrones</h1></header>
+				<time datetime="2018-02-14" pubdate>publicado 2018-02-14
+				</time>
+
+				<h2>Introduccion al reconocimiento de patrones</h2>
+
+				<p>Reconocimiento de Patrones es una área de la tecnología conocido como Aprendizaje de Maquinas (Machine Learning) o Aprendizaje Automático. El único propósito de este método es el clasificar un grupo de patrones conocido como conjunto de pruebas en dos o mas clases de categorías. Esto es logrado al calcular las categorías del conjunto en prueba comparándolo con un conjunto de entrenamiento (previo) o training set. Un clasificador dado mide la distancia entre varios puntos dados (compara), para saber cuales puntos son mas cercanos a la meta en un modelo parametizado.</p>
+
+				<h2>Pasos para Reconocimiento de Patrones:</h2>
+
+				<p>Para ilustrar estos pasos vale la pena imaginarnos el diseño de un sistema especifico para reconocer boletas o tarjetas para entrar a una instalación de un museo (ver figura 43 [*]). De acuerdo al color o la forma de la boleta, los artefactos de la instalación reaccionarían de diferentes maneras. Para esto se necesita un foto sensor ajustado a un rango especifico de colores que son nuestras categorías.</p>
+
+				<h3>Característica</h3>
+
+				<p>En este paso se identifican los segmentos o partes que hacen diferente un elemento (objeto) de otro al explorar un patrón. En nuestro caso de la instalación los elementos para clasificar son el color y la forma. A veces no es trivial el proceso de clasificación porque la forma o el color podrían ser difusos añadiendo ruido, corrupción o inconsistencias a la señal digital como podría ser una boleta vieja o utilizada. Para optimizar el proceso de identificación de una característica podríamos hacer análisis de la forma de la boleta como también análisis de espectro para determinar colores como también densidades de pixels para averiguar relieves. En este caso es mejor restringidos a un mundo de dos dimensiones.</p>
+
+				<h3>Modelo</h3> 
+				<p>Dado que hay diferencias entre las diferentes tarjetas podríamos pensar en cada ``tipo'' como un modelo que posee diferentes descripciones que serían expresadas en formas matemáticas (geometría o álgebra). La meta del modelo es hipotetizar cada clase, con sus cualidades procesar los datos recogidos por el sensor, eliminar errores, ruido o defectos por cada patrón percibido y generar un modelo que describa exactamente la semántica del patrón.</p>
+
+				<h3>Pre Procesamiento y Segmentación </h3>
+
+				<p>Este paso es necesario para simplificar las siguientes operaciones en el reconocimiento sin que se pierda la información relevante al modelo de patrón. En particular, se puede utilizar una operación de segmenta miento en la que se extraerían todas las posibles características o propiedades de cada tarjeta. Esta información sería posteriormente enviada a un sistema de extracción de características cuyo propósito es el de reducir los datos redundantes los errores y conservar los aciertos como características típicas o propiedades. Estas cualidades o más precisamente, los valores de estas características son pasados a un clasificador donde se evalúa la evidencia presentada y donde se toma la decisión final sobre si la boleta es valida o no. Consecuentemente el pre procesador nos genera un modelo tentativo para una variedad ya determinada de clases de boletas.</p>
+
+				<picture>
+
+  				<source srcset="./img/pr1280.jpg" media="(min-width: 1280px)">
+  				<source srcset="./img/pr800.jpg" media="(min-width: 800px)">
+  				<source srcset="./img/pr480.jpg" media="(min-width: 400px)">
+
+  				<img src="./img/pr1280.jpg">
+
+				</picture>
+
+
+				<footer>
+					Tomado de: <strong> Reconocimiento de Patrones. (2018). Retrieved from https://www.maginvent.org/articles/pidht/pidtoot/Reconocimiento_Patrones.html</strong>
+				</footer>
+
+			</article>
+			
+		</section>
+
+		<section id= "section3">
+			
+			<article>
+				<header  class ="topicHeader" id="topic3"><h1>Procesamiento de señales<h1></header>
+					<time datetime="2018-02-14" pubdate>publicado 2018-02-14
+					</time>
+
+
+					<h2>Concepto</h2>
+
+					<p>Esta disciplina es una rama de la ingeniería eléctrica, fuertemente vinculada a las ciencias de la computación y la matemática aplicada, que se ocupa de la adquisición, detección, representación, transformación, análisis e interpretación de señales analógicas o digitales. Entre  los temas abarca se destacan:</p>
+
+					<ul class="list">
+						<li><span>Visión Artificial, Análisis y Procesamiento de imágenes y videos</span></li>
+						<li><span>Procesamiento y Análisis de Audio</span></li>
+						<li><span>Aprendizaje Automático/Reconocimiento de patrones y  Análisis de datos</span></li>
+						<li><span>Teoría de la Información</span></li>
+						<li><span>Procesamiento de señales</span></li>
+					</ul>
+
+					<h2>Tendencias del PDS</h2>
+
+					<p >En los últimos 30 o 40 años con el avance vertiginoso de la tecnología y de las telecomunicaciones se ha producido una migración cada vez mayor desde el procesamiento análogo hacia el procesamiento digital. Al mismo tiempo, han surgido nuevas técnicas y nuevas aplicaciones; que a su vez han generado nuevas tendencias en campos de la ingeniería, en especial de las ramas que se avocan al estudio, diseño y desarrollo de nuevas arquitecturas con altas prestaciones para el PDS, tales como la electrónica, las telecomunicaciones y la electricidad. A continuación se mencionan algunas de las tendencias actuales del PSD en diversas ramas de la investigación.</p>
+
+					<ul class="list">
+						<li><span>Voz: Compresión de la información, identificación de personas y reconocimiento de voz (dictado por voz).</span></li>
+
+						<li><span>Redes de datos: Integración de todos los servicios de telecomunicaciones en uno.</span></li>
+						<li><span>Domótica: Para la automatización de los hogares de las personas.<span></span></li>
+						<li><span>Sistemas satelitales: Enlaces dedicados digitalización y codificación de servicios como Tv, telefonía, datos y multimedia.</span></li>
+						<li><span>Radiocomunicaciones Aeronáuticas: Para la medición de distancia y ubicación de aeronaves en el espacio aéreo.</span></li>
+						<li><span>Verificación de la calidad del suministro eléctrico: Detección de transientes, medición de valor efectivo, potencia, factor de potencia, contenido armónico y flicker.</span></li>
+					</ul>
+
+					<picture>
+
+  				<source srcset="./img/sp1280.jpg" media="(min-width: 1280px)">
+  				<source srcset="./img/sp800.jpg" media="(min-width: 800px)">
+  				<source srcset="./img/sp480.jpg" media="(min-width: 400px)">
+
+  				<img src="./img/sp1280.jpg">
+
+				</picture>
+
+					<footer>
+						Tomado de: <strong> Reconocimiento de Patrones. (2018). Retrieved from https://www.maginvent.org/articles/pidht/pidtoot/Reconocimiento_Patrones.html</strong>
+					</footer>
+
+				</article>
+				
+			</section>
+
+			<footer id="mainFooter">
+				Derechos Reservados &copy; 2018
+			</footer> 
+
+		</div>
+	</body>
+	</html>

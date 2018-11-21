@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/register.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/register.js"></script>
+	<title>Regístrate</title>
+</head>
+<body>
+	<div id ="loginForm">
+		<header>Regístrate</header>
+		<form id="theForm" >
+			<div class="imgContainer">
+
+				<picture>
+
+  				<source srcset="./img/avatar.png" media="(min-width: 1280px)">
+  				<source srcset="./img/avatar.png" media="(min-width: 800px)">
+  				<source srcset="./img/avatar.png" media="(min-width: 400px)">
+
+  				<img src="./img/avatar.png">
+
+				</picture>
+			</div>
+			<div class="userDataContainer">
+				<label for="uname"><b>Usuario</b></label>
+   				<input type="text" placeholder="Usuario" name="uname" id="uname" >
+
+   				<label for="psw"><b>Contraseña</b></label>
+    			<input type="password" placeholder="********" name="psw" id="upass" >
+
+    			<label for="bday"><b>Fecha de nacimiento</b></label>
+    			<input type="date" name="bday" id="ubirthdate">
+    			
+    			<label for="gender"><b>Sexo</b></label>
+    			<label>Masculino</label>
+    			<input type="radio" name="gender" value="M" checked>
+    			<label>Femenino</label>
+  				<input type="radio" name="gender" value="F">
+
+  				<label for="email"><b>E-mail</b></label>
+   				<input type="text" placeholder="example@example.com" name="email" id="uemail" >
+        
+    			<button class="registerBtn" type="submit" onclick="return val()">Registrarse</button>
+    			<button class="cancelBtn" type="button" onclick="location.href='index.html'" >Cancelar</button>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>
