@@ -25,7 +25,7 @@ include("dbConfig.php");
 <body>
     <div id ="loginForm">
         <header>Regístrate</header>
-        <form id="theForm" action="registerUser.php" method="POST">
+        <form id="regForm" action="registerUser.php" method="POST">
             <div class="imgContainer">
 
                 <picture>
@@ -42,20 +42,20 @@ include("dbConfig.php");
                 <label for="uname"><b>Usuario</b></label>
                 <input type="text" placeholder="Usuario" name="uname" id="uname" >
 
-                <label for="psw"><b>Contraseña</b></label>
-                <input type="password" placeholder="********" name="psw" id="upass" >
+                <label for="upass"><b>Contraseña</b></label>
+                <input type="password" placeholder="********" name="upass" id="upass" >
 
-                <label for="bday"><b>Fecha de nacimiento</b></label>
-                <input type="date" name="bday" id="ubirthdate">
+                <label for="ubirthdate"><b>Fecha de nacimiento</b></label>
+                <input type="date" name="ubirthdate" id="ubirthdate">
                 
-                <label for="gender"><b>Sexo</b></label>
+                <label for="ugen"><b>Sexo</b></label>
                 <label>Masculino</label>
-                <input type="radio" name="gender" value="M" checked>
+                <input type="radio" name="ugen" value="M" checked>
                 <label>Femenino</label>
-                <input type="radio" name="gender" value="F">
+                <input type="radio" name="ugen" value="F">
 
-                <label for="email"><b>E-mail</b></label>
-                <input type="text" placeholder="example@example.com" name="email" id="uemail" >
+                <label for="uemail"><b>E-mail</b></label>
+                <input type="text" placeholder="example@example.com" name="uemail" id="uemail" >
 
                 <label><b>Preferencias</b></label>
                 <?php 
@@ -69,14 +69,14 @@ include("dbConfig.php");
                     $spt_rs = $pdo->prepare($sec_per_tag_query);
                     $spt_rs->execute();
                     while($spt_r = $spt_rs->fetch(PDO::FETCH_OBJ)){
-                        echo "<li><label><input type='checkbox' id ='".$spt_r->id_seccion."' class='subOption'>".$spt_r->titulo."</label></li>";
+                        echo "<li><label><input type='checkbox' class = 'sec_ids' id ='".$spt_r->id_seccion."' value ='".$spt_r->id_seccion."' name = 'sec_ids[]' class='subOption'>".$spt_r->titulo."</label></li>";
                     }
                     echo "</ul></li>";    
                 }
                 echo "</ul>";   
                 ?>
 
-                <button class="registerBtn" type="submit" onclick="val()">Registrarse</button>
+                <button class="registerBtn" type="submit" >Registrarse</button>
                 <button class="cancelBtn" type="button" onclick="location.href='index.html'" >Cancelar</button>
             
             </div>

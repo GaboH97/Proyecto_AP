@@ -15,8 +15,7 @@
     
     //ARREGLAR, AQUÍ DEBERÍA OBTENER EL ARRAY CON LOS ÍNDICES DE LAS SECCIONES DE PREFERENCIA
 
-    $pref = $_POST["sec_pref"];
-
+    $pref = $_POST["sec_ids"];
 
     //QUERY TO KNOW IF USER ALREADY EXISTS
 	$sql_query = "SELECT * FROM users WHERE user_name = ? OR email = ?";
@@ -27,7 +26,7 @@
      if($result3 = $sql->fetch(PDO::FETCH_OBJ)){
         //session_start();
        
-        echo "<span>Usuario ya existe </span> <p><a href=\"../register.html\"> Volver<p>";
+        echo "<span>Usuario ya existe </span> <p><a href=\"register.php\"> Volver<p>";
     
         //header("Status: 301 Moved Permanently");
         //exit;
@@ -40,12 +39,15 @@
 
         //REGISTRA LAS PREFERENCIAS DEL USUARIO DEFINIDAS EN EL FORMULARIO DE REGISTRO
 
-        foreach ($pref as $id_sec){
+        $pref_arr = explode (",", $pref);
+
+        foreach ($pref_arr as $id_sec){
             $user_pref_query ="INSERT INTO preferencias(user_name,id_seccion,seleccionado) VALUES (?,?,?)";
             $user_pref_rs = $pdo->prepare($user_pref_query);
             $user_pref_rs->execute([$uname,$id_sec,'S']);
         }
 
+        echo "OK";
          //header("location: ../index.html");
     }
     

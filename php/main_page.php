@@ -20,11 +20,6 @@ $cupref_rs = $pdo->prepare($check_user_pref_query);
 $cupref_rs->execute([$user_name]);
 
 
-//IF USER HAS NO PREFERENCES, 
-if($sql->fetch(PDO::FETCH_OBJ)->count_pref == 0){
-
-}
-
 $sql_query = "SELECT * FROM SECCIONES";
 $stmt = $pdo->prepare($sql_query);
 $stmt->execute();
