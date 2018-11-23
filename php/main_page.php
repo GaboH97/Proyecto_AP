@@ -15,16 +15,29 @@ $user_name =  $_SESSION['uname'];
 
 //CHECK IF USER HAS PREFERENCES
 
-$check_user_pref_query = "SELECT COUNT(user_name) count_pref FROM preferencias where user_name =?";
-$cupref_rs = $pdo->prepare($check_user_pref_query);
-$cupref_rs->execute([$user_name]);
+$user_pref_sql = "SELECT id_seccion FROM preferencias WHERE user_name = ?";
+$user_pref_rs = $pdo->prepare($user_pref_sql);
+$user_pref_rs->execute(array($user_name));
+
+//ADD PREFERENCES
+$pref_ids = array();
+$counter = 0;
+while($result = $user_pref_rs->fetch(PDO::FETCH_OBJ)){
+	$pref_ids[$counter] = $result->id_seccion;
+	$counter++;
+}
 
 
-$sql_query = "SELECT * FROM SECCIONES";
-$stmt = $pdo->prepare($sql_query);
-$stmt->execute();
+ /*$check_user_pref_query = "SELECT COUNT(user_name) count_pref FROM preferencias where user_name =?";
+ $cupref_rs = $pdo->prepare($check_user_pref_query);
+ $cupref_rs->execute([$user_name]);)
+*/
 
-$content = $stmt;
+ $sql_query = "SELECT * FROM SECCIONES";
+ $stmt = $pdo->prepare($sql_query);
+ $stmt->execute();
+
+ $content = $stmt;
 
 	if(isset($_POST['updatePref'])){//to run PHP script on submit
 		if(!empty($_POST['check_list'])){
@@ -86,16 +99,16 @@ $content = $stmt;
 					<h1 style="padding-bottom: 20px;">¿Qué secciones deseas ver?</h1>
 					<?php
 
-					$sql_query = "SELECT s.*, p.user_name FROM secciones s LEFT JOIN preferencias p ON s.id_seccion = p.id_seccion";
+					$sql_query = "SELECT * FROM secciones ";
 					$sql = $pdo->prepare($sql_query);
 					$sql->execute();
 
 					while($result = $sql->fetch(PDO::FETCH_OBJ)){
-						if(strcmp($result->user_name,$user_name) ==0){
+						if(in_array($result->id_seccion, $pref_ids)){
 							echo "<input type='checkbox' name='checkbox' value='$result->id_seccion' checked><label>$result->titulo</label><br/>";
 						}else{
 							echo "<input type='checkbox' name='checkbox' value='$result->id_seccion'><label>$result->titulo</label><br/>";
-						}
+						}	
 					}
 					?>
 					
@@ -122,7 +135,12 @@ $content = $stmt;
 				<?php
 				$content->execute();
 				while ($row = $content->fetch(PDO::FETCH_OBJ)){
-					echo "<section id='sec".$row->id_seccion."'><article>";
+					if(in_array($row->id_seccion, $pref_ids)){
+						echo "<section id='sec".$row->id_seccion."'><article>";
+					}else{
+						echo "<section id='sec".$row->id_seccion."' style= 'display: none'><article>";
+					}
+					
 					echo '<header class ="topicHeader" id="topic1"><h1 onclick="showSection(this)">'.$row->titulo.'</h1></header>';
 					echo '<time datetime="'.$row->fecha_publicacion.'" pubdate="pubdate">Publicado en '.$row->fecha_publicacion.'</time>';
 					echo "<p>".$row->contenido."</p>";
