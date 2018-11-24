@@ -43,7 +43,7 @@
         //exit;
     }
     else{
-        header("Location: ../index.html");
+       // header("Location: ../index.html");
         echo "Usuario no encontrado";
     }
     

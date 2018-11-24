@@ -80,7 +80,7 @@ while($result = $user_pref_rs->fetch(PDO::FETCH_OBJ)){
 		<div id="pageBody">
 			<header id="header">
 				<h1 style="float: left;">Tópicos de Ingeniería en Computación</h1>
-				<p style ="float: right;"><a href = "logout.php">Salir</a></h2>
+				<button style ="float: right" onclick="logout()">Salir</button>
 					<p style ="float: right;">Bienvenido <span id="username"><?php
 					echo $_SESSION['uname'] ?></span></p>
 

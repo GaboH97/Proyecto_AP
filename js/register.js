@@ -9,16 +9,13 @@ $(function() {
 			var ubirthdate = document.getElementById('ubirthdate').value;
 			var uemail = document.getElementById('uemail').value;
 			var ugen = $("input[name='ugen']:checked").val();
-
-			/* declare an checkbox array */
+		
 			var sec_ids_Array = [];
 
-			/* look for all checkboes that have a class 'chk' attached to it and check if it was checked */
 			$(".sec_ids:checked").each(function() {
 				sec_ids_Array.push($(this).val());
 			});
 
-			/* we join the array separated by the comma */
 			var chkd_sec_id;
 			chkd_sec_id = sec_ids_Array.join(',') ;
 
@@ -81,6 +78,5 @@ $(function() {
 		return true;
 	}
 }
-
 
 });
