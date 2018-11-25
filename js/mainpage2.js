@@ -38,10 +38,11 @@ function logout(){
 	}
 
 	var new_pref_str = new_pref_arr.join(',');
+	console.log(new_pref_str);
 
 	$.ajax({
 		type :'POST',
-		url : 'php/logout.php',
+		url : 'logout.php',
 		data : {
 			new_pref: new_pref_str
 		},

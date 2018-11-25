@@ -2,12 +2,6 @@
 	
     include("dbConfig.php");
     
-	//DB connection settings
-
-	//$dbuser = "root";
-	//$dbpass = "Theothershore97";
-	//$dbhost = "localhost";
-	//$dbname = "users";
 
 
 	try {
