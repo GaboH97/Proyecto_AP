@@ -77,7 +77,7 @@ include("dbConfig.php");
                 ?>
 
                 <button class="registerBtn" type="submit" >Registrarse</button>
-                <button class="cancelBtn" type="button" onclick="location.href='index.html'" >Cancelar</button>
+                <button class="cancelBtn" type="button" onclick="location.href='../index.html'" >Cancelar</button>
             
             </div>
         </form>
